@@ -16,6 +16,8 @@
 
 ## Estructura de directorios
 
+Para ver la estructura de directorios, se debe crear una nueva aplicación laravel, las instrucciones de como hacerlo están [aquí](#crear-la-primera-app)
+
 ### app
 
 Contiene el código fuente de la aplicación o lógica de negocios. Los directorios se usan para:
@@ -60,7 +62,7 @@ Contiene las `vistas o views` de nuestra aplicación, junto con los archivos `sa
 Contiene las vistas compiladas, logs autogenerados por laravel, archivos en cache entre otros. Inicialmente se generan los siguientes directorios, y estos son sus usos
 
 - **app** : se usa para almacenar los archivos generados por nuestra aplicación
-  - public : puede ser usada para almacenar archivos generados por el usuario, por ejemplo, imagenes de perfil que deben ser accesibles públicamente. Sin embargo, como se dijo anteriormente los archivos que se ven públicamente están almacenados en la carpeta [public](#public). Entonces para poder acceder a los archivos de esta carpeta, hay que crear un simbolic link desde la carpeta public a la carpeta storage y esto se hace con el comando de artisan `php artisan storage:link`
+  - ***public*** : puede ser usada para almacenar archivos generados por el usuario, por ejemplo, imagenes de perfil que deben ser accesibles públicamente. Sin embargo, como se dijo anteriormente los archivos que se ven públicamente están almacenados en la carpeta [public](#public). Entonces para poder acceder a los archivos de esta carpeta, hay que crear un simbolic link desde la carpeta public a la carpeta storage y esto se hace con el comando de artisan `php artisan storage:link`
 - **framework** : lo usa laravel para guardar los archivos compilados como las vistas, cache, sesiones, etc
 - **logs** : contiene información detallada sobre los errores que ocurren en la aplicación
 
@@ -72,4 +74,31 @@ En esta se almacenan las pruebas unitarias
 
 Contiene todas las dependencias de composer, y no se debe tocar sino para leer lo que necesitemos
 
+## Rutas
+
+Las rutas son las url de entrada permitidas por nuestra aplicación, es aquí donde indicamos que url usar para acceder a una acción. La documentación oficial sobre este tema la encontramos [aquí](https://laravel.com/docs/master/routing)
+
+### Métodos de acceso
+
+Las rutas se definen con la clase `Route` y laravel nos permite usar los siguientes métodos de acceso:
+```
+Route::get($uri, $callback);
+Route::post($uri, $callback);
+Route::put($uri, $callback);
+Route::patch($uri, $callback);
+Route::delete($uri, $callback);
+Route::options($uri, $callback);
+```
+
 ## Lecciones
+
+### Crear la primera app
+
+Vamos a crear nuestra primera app Laravel\
+
+1. Desde la línea de comandos `laravel new app`
+2. Refrescamos laragon
+3. Accedemos a la url *app.test*, si se le indicó a laragon que escuchara por algun puerto distinto al 80, se debe especificar este al final de la url
+4. Esto nos debe desplegar la página por defecto de laravel
+
+[Contenido](#contenido)
